@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: #0A0A0A;
+    color: #FFFFFF;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .font-serif {
+    font-family: 'Playfair Display', serif;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0A0A0A;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #D4AF37;
+    border-radius: 4px;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-10 py-4 border-2 border-gold bg-transparent text-gold text-sm font-semibold tracking-widest uppercase 
+           cursor-pointer transition-all duration-300 inline-block text-center;
+  }
+  .btn:hover {
+    @apply bg-gold text-dark -translate-y-0.5;
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+  }
+  .btn-primary {
+    @apply bg-gold text-dark;
+  }
+  .btn-primary:hover {
+    @apply bg-gold-light;
+    box-shadow: 0 10px 30px rgba(244, 208, 63, 0.4);
+  }
+
+  .section-padding {
+    @apply py-24 px-[5%];
+  }
+
+  .reveal {
+    @apply opacity-0 translate-y-12 transition-all duration-700 ease-out;
+  }
+  .reveal.active {
+    @apply opacity-100 translate-y-0;
+  }
+}
+
+@layer utilities {
+  .text-shadow-gold {
+    text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+  }
+}
