@@ -2,19 +2,22 @@
 
 Sitio web premium de barbería construido con **React + Vite + Tailwind CSS + Framer Motion**.
 
-## URL en vivo
-https://bryand10.github.io/barberia.github.io/
+## Despliegue recomendado: Vercel
 
-## Estado actual
-- Estructura del proyecto corregida (ya no está anidada).
-- Configurado para GitHub Pages (`base` + `basename`).
-- Deploy automático con GitHub Actions.
-- Botón flotante de **WhatsApp** añadido.
+1. Ve a [vercel.com](https://vercel.com) e inicia sesión con tu cuenta de GitHub.
+2. Click en **Add New Project**.
+3. Importa el repositorio `BryanD10/barberia.github.io`.
+4. Vercel detectará automáticamente Vite. Deja la configuración por defecto:
+   - Framework Preset: Vite
+   - Build Command: `npm run build`
+   - Output Directory: `dist`
+5. Click **Deploy**.
 
-## Cómo activar GitHub Pages (IMPORTANTE)
-1. Ve a tu repositorio → **Settings** → **Pages**.
-2. En **Source** elige **GitHub Actions**.
-3. Guarda. El siguiente push (o el workflow) desplegará el sitio.
+En menos de 1 minuto tendrás una URL limpia tipo:
+`https://barberia-github-io.vercel.app` (o el nombre que elijas).
+
+### Dominio personalizado (opcional)
+Después del deploy puedes agregar tu propio dominio desde el panel de Vercel.
 
 ## Desarrollo local
 ```bash
@@ -27,16 +30,17 @@ npm run dev
 npm run build
 ```
 
-## Mejoras implementadas / posibles
-- ✅ Botón flotante WhatsApp (cambia el número en `src/components/UI/WhatsAppFloat.jsx`)
-- ✅ Animaciones suaves con Framer Motion
-- ✅ Carrito de productos (localStorage)
-- ✅ Galería con filtros y lightbox
-- ✅ Página de reserva de citas
-- 🔜 Formulario real (Formspree / EmailJS)
-- 🔜 Integración con Google Calendar o backend de citas
-- 🔜 Panel admin simple
-- 🔜 PWA (instalable en móvil)
+## Características
+- Diseño premium dark + gold
+- Animaciones con Framer Motion
+- Galería con filtros y lightbox
+- Catálogo de productos + carrito
+- Página de reserva de citas (multi-paso)
+- Botón flotante de WhatsApp
+- Totalmente responsive
 
-## Contacto / personalización
-Cambia los datos de la barbería (teléfono, dirección, horarios, número de WhatsApp) en los componentes correspondientes.
+## Personalización rápida
+- Número de WhatsApp → `src/components/UI/WhatsAppFloat.jsx`
+- Datos de contacto → `src/components/Home/Contact.jsx`
+- Servicios y precios → `src/data/servicesData.js`
+- Productos → `src/data/productsData.js`

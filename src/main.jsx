@@ -7,7 +7,7 @@ import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter basename="/barberia.github.io">
+    <BrowserRouter>
       <CartProvider>
         <App />
       </CartProvider>
