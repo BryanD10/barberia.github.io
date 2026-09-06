@@ -5,6 +5,7 @@ import Preloader from './Preloader'
 import ScrollToTop from './ScrollToTop'
 import Toast from './Toast'
 import CartFloat from '../UI/CartFloat'
+import WhatsAppFloat from '../UI/WhatsAppFloat'
 
 export default function Layout() {
   return (
@@ -17,6 +18,7 @@ export default function Layout() {
       </main>
       <Footer />
       <CartFloat />
+      <WhatsAppFloat />
       <Toast />
     </>
   )
