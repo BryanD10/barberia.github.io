@@ -1,11 +1,13 @@
 import { motion } from 'framer-motion'
 import { Scissors, Sparkles, Brush, Hand, Paintbrush, Crown } from 'lucide-react'
 import SectionHeader from '../UI/SectionHeader'
-import { servicesData } from '../../data/servicesData'
+import { usePublicData } from '../../hooks/useAdminData'
 
 const iconMap = { Scissors, Sparkles, Brush, Hand, Paintbrush, Crown }
 
 export default function Services() {
+  const { services } = usePublicData()
+
   return (
     <section id="servicios" className="section-padding bg-dark-deeper">
       <SectionHeader 
@@ -14,11 +16,11 @@ export default function Services() {
       />
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 max-w-6xl mx-auto">
-        {servicesData.map((service, index) => {
-          const Icon = iconMap[service.icon]
+        {services.map((service, index) => {
+          const Icon = iconMap[service.icon] || Scissors
           return (
             <motion.div
-              key={service.name}
+              key={service.name + index}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-40px' }}
@@ -32,7 +34,7 @@ export default function Services() {
               </div>
               <h3 className="text-lg sm:text-xl mb-3 text-white font-serif font-bold">{service.name}</h3>
               <p className="text-text-gray text-sm leading-relaxed mb-5">{service.desc}</p>
-              <div className="text-gold text-xl font-bold">${service.price.toFixed(2)}</div>
+              <div className="text-gold text-xl font-bold">${Number(service.price).toFixed(2)}</div>
             </motion.div>
           )
         })}
