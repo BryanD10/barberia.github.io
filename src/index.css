@@ -5,62 +5,81 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
   }
 
   body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', system-ui, sans-serif;
     background-color: #0A0A0A;
     color: #FFFFFF;
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
   }
 
   h1, h2, h3, .font-serif {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Playfair Display', Georgia, serif;
   }
 
   ::-webkit-scrollbar {
-    width: 8px;
+    width: 6px;
   }
   ::-webkit-scrollbar-track {
     background: #0A0A0A;
   }
   ::-webkit-scrollbar-thumb {
     background: #D4AF37;
-    border-radius: 4px;
+    border-radius: 3px;
+  }
+
+  /* Mejor legibilidad en móvil */
+  input, select, textarea, button {
+    font-size: 16px; /* evita zoom en iOS */
   }
 }
 
 @layer components {
   .btn {
-    @apply px-10 py-4 border-2 border-gold bg-transparent text-gold text-sm font-semibold tracking-widest uppercase 
-           cursor-pointer transition-all duration-300 inline-block text-center;
+    @apply px-6 py-3 sm:px-8 sm:py-3.5 border-2 border-gold bg-transparent text-gold text-xs sm:text-sm font-semibold tracking-widest uppercase 
+           cursor-pointer transition-all duration-300 inline-flex items-center justify-center text-center rounded-sm;
   }
   .btn:hover {
     @apply bg-gold text-dark -translate-y-0.5;
-    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.35);
   }
   .btn-primary {
-    @apply bg-gold text-dark;
+    @apply bg-gold text-dark border-gold;
   }
   .btn-primary:hover {
-    @apply bg-gold-light;
-    box-shadow: 0 10px 30px rgba(244, 208, 63, 0.4);
+    @apply bg-gold-light border-gold-light;
+    box-shadow: 0 8px 25px rgba(244, 208, 63, 0.4);
   }
 
   .section-padding {
-    @apply py-24 px-[5%];
+    @apply py-16 sm:py-20 md:py-24 px-4 sm:px-6 md:px-[5%];
   }
 
   .reveal {
-    @apply opacity-0 translate-y-12 transition-all duration-700 ease-out;
+    @apply opacity-0 translate-y-10 transition-all duration-700 ease-out;
   }
   .reveal.active {
     @apply opacity-100 translate-y-0;
+  }
+
+  /* Cards uniformes */
+  .card-premium {
+    @apply bg-dark-card border border-dark-border transition-all duration-300;
+  }
+  .card-premium:hover {
+    @apply border-gold/60 shadow-lg;
+    box-shadow: 0 10px 40px rgba(212, 175, 55, 0.08);
   }
 }
 
 @layer utilities {
   .text-shadow-gold {
     text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+  }
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
   }
 }
